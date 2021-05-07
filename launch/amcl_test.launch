@@ -1,0 +1,16 @@
+<!-- 测试文件 -->
+<launch>
+    <!-- 发布laser->base_link的坐标系变换 -->
+    <node pkg="tf" type="static_transform_publisher" name="laser_tf_publisher" args="0.19 0 0 0 0 0 base_link laser 100" />
+    <!-- base_link->odom的坐标变换由里程计节点发布 -->
+
+
+    <!-- 启动rviz -->
+    <node pkg="rviz" type="rviz" name="rviz" />
+
+    <!-- 加载地图服务 -->
+    <include file="$(find robot_nav)/launch/map_server.launch"/>
+
+    <!-- amcl文件 -->
+    <include file="$(find robot_nav)/launch/amcl.launch"/>
+</launch>

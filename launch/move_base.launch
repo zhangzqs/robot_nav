@@ -1,0 +1,18 @@
+<launch>
+
+    <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen" clear_params="true">
+
+        <!-- 通用代价地图参数 -->
+        <rosparam file="$(find robot_nav)/param/costmap_common_params.yaml" command="load" ns="global_costmap" />
+        <rosparam file="$(find robot_nav)/param/costmap_common_params.yaml" command="load" ns="local_costmap" />
+        <!-- 本地代价地图参数 -->
+        <rosparam file="$(find robot_nav)/param/local_costmap_params.yaml" command="load" />
+
+        <!-- 全局代价地图参数 -->
+        <rosparam file="$(find robot_nav)/param/global_costmap_params.yaml" command="load" />
+
+        <!-- 底盘运动规划相关参数 -->
+        <rosparam file="$(find robot_nav)/param/base_local_planner_params.yaml" command="load" />
+    </node>
+
+</launch>

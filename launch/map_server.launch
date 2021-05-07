@@ -1,0 +1,11 @@
+<launch>
+<!--    加载地图-->
+    <arg name="map" default="nav1.yaml"/>
+
+<!--    加载地图-->
+    <node pkg="map_server"
+          type="map_server"
+          name="map_server"
+          output="screen"
+          args="$(find robot_nav)/map/$(arg map)"/>
+</launch>

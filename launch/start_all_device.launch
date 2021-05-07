@@ -1,0 +1,19 @@
+<launch>
+<!--    启动底盘节点-->
+    <include file="$(find chassis)/launch/start_three.launch"/>
+
+<!--    启动IMU节点-->
+    <include file="$(find wit_imu_driver)/launch/start.launch"/>
+
+<!--    启动激光雷达节点-->
+    <include file="$(find hokuyo_node)/hokuyo_test.launch"/>
+
+<!--    启动深度相机节点-->
+    <include file="$(find realsense2_camera)/launch/rs_rgbd.launch"/>
+
+<!--    启动里程计节点-->
+    <node pkg="chassis_odom" type="chassis_odom_node" name="chassis_odom_node" output="screen"/>
+
+<!--    启动机械臂节点-->
+<!--    <include file="$(find robotic_arm)/launch/start.launch"/>-->
+</launch>
